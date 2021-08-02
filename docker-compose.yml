@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  log-agent:
+    build: ./
+    image: blog-log-agent
+    command:
+      - -eventsurl=${EVENTS_URL}
+    volumes:
+      - ${SOTA_DIR-/var/sota}:/var/sota:ro
+      - ${EVENTS_DIR-/var/run/events}:/var/run/events
